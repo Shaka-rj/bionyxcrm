@@ -26,7 +26,7 @@ class TelegramController extends Controller
         $secret_key = hash_hmac('sha256', $bot_token, "WebAppData", true);
         $hash = bin2hex(hash_hmac('sha256', $data_check_string, $secret_key, true) );
 
-        if(strcmp($hash, $check_hash) != 0){
+        if(strcmp($hash, $check_hash) == 0){
             $user = json_decode($req['user'], true);
             $chat_id = $user['id'];
             session(['chat_id' => $chat_id]);
