@@ -53,11 +53,22 @@ class TurPlanController extends Controller
     }
 
     public function edit($month_id){
+        $currentDate = Carbon::now();
+
+        if ($currentDate->day == 25) {
+            $month = $currentDate->addMonth()->month;
+        } else {
+            $month = $currentDate->month;
+        }
+
+        $month_name = config('month.months')[$month];
+
         return view('user.turplanedit', [
             'list' => $this->getturplans($month_id),
             'api_token' => session('api_token'),
             'user_id' => $this->user_id,
-            'month' => $month_id
+            'month' => $month_id,
+            'month_name' => $month_name
         ]);
     }
 

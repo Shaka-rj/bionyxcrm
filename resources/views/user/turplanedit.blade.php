@@ -11,7 +11,7 @@
     <div id="loader" style="display: none;"></div>
     <div class="header">
         <h3>Tur plan</h3>
-        <p>Aprel oyi uchun</p>
+        <p>{{ $month_name }} oyi uchun</p>
     </div>
     <br>
     
